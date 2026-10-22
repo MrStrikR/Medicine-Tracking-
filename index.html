@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>سجل الأدوية</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="الأدوية">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="theme-color" content="#0E5A68">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#EDF1F3; --surface:#FFFFFF; --ink:#13242B; --muted:#5E7079; --line:#D6DFE3;
+  --brand:#0E5A68; --brand-ink:#FFFFFF; --soft:#E1ECEF; --danger:#B3261E; --overlay:rgba(10,22,27,.45);
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0E181C; --surface:#16252B; --ink:#E6EEF1; --muted:#8FA3AC; --line:#26383F;
+    --brand:#5CC2D3; --brand-ink:#06242A; --soft:#1E3239; --danger:#FF8A80; --overlay:rgba(0,0,0,.6);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0E181C; --surface:#16252B; --ink:#E6EEF1; --muted:#8FA3AC; --line:#26383F;
+  --brand:#5CC2D3; --brand-ink:#06242A; --soft:#1E3239; --danger:#FF8A80; --overlay:rgba(0,0,0,.6);
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px);-webkit-text-size-adjust:100%}
+*,*::before,*::after{box-sizing:border-box}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:'IBM Plex Sans Arabic','Segoe UI',Tahoma,system-ui,sans-serif;
+  font-size:16px;line-height:1.6;font-variant-numeric:tabular-nums;
+}
+button,input,textarea{font:inherit;color:inherit}
+button{cursor:pointer;border:0;background:none;padding:0}
+:focus-visible{outline:3px solid var(--brand);outline-offset:2px;border-radius:8px}
+#app{max-width:560px;margin:0 auto;padding:20px 16px 120px}
+
+/* header */
+.top h1{margin:8px 0 0;font-size:30px;line-height:1.2;font-weight:700}
+.top .sub{margin:4px 0 20px;color:var(--muted);font-size:15px}
+
+/* home list */
+.meds{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
+.card{
+  display:flex;align-items:center;gap:10px;
+  background:var(--surface);border:1px solid var(--line);
+  border-inline-start:7px solid var(--c);border-radius:14px;padding:6px 8px 6px 12px;
+}
+.card-main{flex:1;min-width:0;text-align:start;padding:10px 6px;display:flex;flex-direction:column;gap:2px}
+.card-main .name{font-size:19px;font-weight:600;line-height:1.35}
+.card-main .dose{font-size:14px;color:var(--muted)}
+.card-main .meta{font-size:13px;color:var(--muted);margin-top:6px;display:flex;flex-direction:column}
+.card-main .meta b{color:var(--ink);font-weight:600}
+.card.late{background:rgba(214,69,69,.13);border-color:#D64545}
+.late-msg{color:var(--danger);font-weight:600}
+.light{display:inline-block;width:12px;height:12px;border-radius:50%;background:#2FBF71;box-shadow:0 0 0 3px rgba(47,191,113,.25),0 0 10px 2px rgba(47,191,113,.6);margin-inline-start:10px;vertical-align:middle}
+.take{
+  flex:none;min-height:46px;padding:0 16px;border-radius:999px;
+  background:var(--brand);color:var(--brand-ink);font-weight:600;font-size:15px;
+}
+.take:active,.btn:active{transform:scale(.97)}
+
+.fab{
+  position:fixed;inset-inline:0;margin:0 auto;width:max-content;
+  bottom:calc(18px + env(safe-area-inset-bottom,0px));
+  min-height:52px;padding:0 26px;border-radius:999px;
+  background:var(--ink);color:var(--bg);font-weight:600;font-size:16px;
+  box-shadow:0 6px 20px rgba(0,0,0,.22);
+}
+.empty{text-align:center;padding:56px 20px;color:var(--muted)}
+.empty h2{margin:0 0 6px;color:var(--ink);font-size:20px}
+.empty p{margin:0 0 20px}
+.note-local{margin-top:22px;font-size:13px;color:var(--muted);text-align:center}
+.bk{display:flex;flex-direction:row;justify-content:flex-start;align-items:center;margin:20px -16px -100px}
+.ico-q{width:32px;height:44px;border-radius:12px;color:var(--muted);opacity:.3;display:inline-grid;place-items:center}
+.ico-q svg{width:16px;height:16px}
+.ico-q:hover,.ico-q:focus-visible{opacity:.9}
+.link.small{font-size:13px;color:var(--muted);font-weight:500;text-decoration:underline;min-height:44px}
+
+/* buttons */
+.btn{
+  min-height:50px;padding:0 20px;border-radius:12px;font-weight:600;font-size:16px;
+  background:var(--brand);color:var(--brand-ink);display:inline-flex;align-items:center;justify-content:center;gap:8px;
+}
+.btn.block{width:100%}
+.btn.ghost{background:var(--soft);color:var(--ink)}
+.btn.danger{background:var(--danger);color:#fff}
+.link{color:var(--brand);font-weight:600;padding:8px 4px;min-height:40px}
+.link.danger{color:var(--danger)}
+
+/* med page */
+.bar{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.back{display:inline-flex;align-items:center;gap:4px;color:var(--brand);font-weight:600;min-height:44px}
+.back svg{width:20px;height:20px}
+.hero{border-inline-start:7px solid var(--c);padding:2px 14px;margin:6px 0 18px}
+.hero h1{margin:0;font-size:28px;line-height:1.25}
+.hero p{margin:4px 0 0;color:var(--muted);font-size:15px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);margin:0 0 18px;
+  background:var(--surface);border:1px solid var(--line);border-radius:14px}
+.stat{padding:14px 8px;text-align:center}
+.stat + .stat{border-inline-start:1px solid var(--line)}
+.stat b{display:block;font-size:26px;line-height:1.1;font-weight:700}
+.stat span{font-size:13px;color:var(--muted)}
+.last{margin:0 0 12px;color:var(--muted);font-size:14px;text-align:center}
+
+details.other{margin:14px 0 6px;background:var(--surface);border:1px solid var(--line);border-radius:14px}
+details.other summary{list-style:none;padding:14px 16px;font-weight:600;cursor:pointer;min-height:48px;display:flex;align-items:center;justify-content:space-between}
+details.other summary::-webkit-details-marker{display:none}
+details.other summary::after{content:"+";font-size:22px;color:var(--brand)}
+details.other[open] summary::after{content:"–"}
+details.other .body{padding:0 16px 16px;display:flex;flex-direction:column;gap:12px}
+
+label.f{display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:500}
+input[type=text],input[type=date],input[type=time],textarea{
+  width:100%;min-height:48px;padding:10px 12px;border-radius:10px;
+  border:1.5px solid var(--line);background:var(--bg);font-size:16px;
+}
+textarea{min-height:76px;resize:vertical}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.sched{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px}
+.sch{display:flex;flex-direction:column;gap:4px;font-size:13px;color:var(--muted);font-weight:500}
+input[type=date],input[type=time]{direction:ltr;text-align:start}
+
+.hist h2{font-size:15px;color:var(--muted);font-weight:600;margin:26px 0 4px}
+.day{margin-top:14px}
+.day-h{display:flex;justify-content:space-between;align-items:baseline;font-weight:600;padding:6px 2px;border-bottom:2px solid var(--line)}
+.day-h span{font-size:13px;color:var(--muted);font-weight:500}
+.log{display:flex;align-items:center;gap:12px;padding:12px 2px;border-bottom:1px solid var(--line)}
+.log .t{flex:none;min-width:74px;font-weight:700;font-size:17px}
+.log .d{flex:1;min-width:0;font-size:15px}
+.log .d small{display:block;color:var(--muted);font-size:13px}
+.log .x{flex:none;width:44px;height:44px;border-radius:50%;color:var(--muted);display:grid;place-items:center}
+.log .x:hover{background:var(--soft)}
+.log .x svg{width:20px;height:20px}
+.nolog{color:var(--muted);text-align:center;padding:28px 12px;background:var(--surface);border:1px dashed var(--line);border-radius:14px}
+
+/* sheet */
+.overlay{position:fixed;inset:0;background:var(--overlay);display:flex;align-items:flex-end;justify-content:center;z-index:20}
+.sheet{
+  width:100%;max-width:560px;background:var(--surface);border-radius:22px 22px 0 0;
+  padding:22px 18px calc(22px + env(safe-area-inset-bottom,0px));
+  max-height:92%;overflow-y:auto;display:flex;flex-direction:column;gap:14px;
+  animation:up .18s ease-out;
+}
+@keyframes up{from{transform:translateY(24px);opacity:0}to{transform:none;opacity:1}}
+@media (prefers-reduced-motion:reduce){.sheet{animation:none}.take:active,.btn:active{transform:none}}
+.sheet h2{margin:0;font-size:21px}
+.sheet p{margin:0;color:var(--muted)}
+.swatches{display:flex;gap:12px;flex-wrap:wrap}
+.sw{width:44px;height:44px;border-radius:50%;background:var(--c);border:3px solid var(--surface);box-shadow:0 0 0 2px var(--line)}
+.sw[aria-checked="true"]{box-shadow:0 0 0 3px var(--ink)}
+.btns{display:flex;gap:10px}
+.btns .btn{flex:1}
+
+/* toast */
+.toast{
+  position:fixed;inset-inline:16px;margin:0 auto;max-width:520px;
+  bottom:calc(86px + env(safe-area-inset-bottom,0px));z-index:30;
+  background:var(--ink);color:var(--bg);border-radius:12px;padding:12px 16px;
+  display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:15px;
+}
+.toast button{color:var(--brand-ink);background:var(--brand);border-radius:8px;padding:6px 14px;min-height:36px;font-weight:600}
+.loading{padding:80px 0;text-align:center;color:var(--muted)}
+.rep{flex:none;width:46px;height:46px;border-radius:50%;background:var(--soft);color:var(--ink);display:grid;place-items:center}
+.rep svg{width:22px;height:22px}
+.pbar{display:block;height:8px;border-radius:99px;background:var(--line);overflow:hidden;margin-top:4px}
+.pbar>i{display:block;height:100%;background:var(--brand);border-radius:99px}
+.plan{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin:0 0 14px}
+.plan-h{display:flex;align-items:baseline;justify-content:space-between}
+.dur{display:flex;gap:6px}
+.dur input{flex:1;min-width:0}
+.dur select{flex:1.3;min-width:0;min-height:48px;padding:0 8px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg);font-size:16px}
+.plan-h b{font-size:26px;line-height:1.1}
+.plan-h span{font-size:14px;color:var(--muted)}
+.plan .pbar{height:10px;margin:8px 0 10px}
+.plan p{margin:0;font-size:14px;color:var(--muted)}
+.mnav{display:flex;align-items:center;justify-content:space-between;margin:6px 0 14px}
+.mnav h2{margin:0;font-size:20px}
+.mnav .arr{width:46px;height:46px;border-radius:50%;background:var(--soft);color:var(--ink);display:grid;place-items:center}
+.mnav .arr svg{width:22px;height:22px}
+.mnav .arr.nx svg{transform:scaleX(-1)}
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}
+.wd{font-size:11px;color:var(--muted);text-align:center;padding:4px 0}
+.cell{aspect-ratio:1/1.05;border-radius:10px;border:1.5px solid var(--line);background:var(--surface);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;padding:0}
+.cell b{font-size:15px;font-weight:600}
+.cell i{font-style:normal;font-size:12px;font-weight:700;min-height:14px}
+.cell.empty-c{border:0;background:none}
+.cell.full{background:#2FBF71;border-color:#2FBF71;color:#06301A}
+.cell.part{background:#F6D36A;border-color:#E0A100;color:#3A2A00}
+.cell.miss{background:#F3C6C6;border-color:#D64545;color:#6B1414}
+.cell.na{opacity:.45;background:transparent}
+.cell.pend{border-style:dashed}
+.cell.today{box-shadow:0 0 0 2px var(--ink)}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;margin:14px 0 0;font-size:13px;color:var(--muted)}
+.legend span::before{content:"";display:inline-block;width:12px;height:12px;border-radius:4px;margin-inline-end:6px;vertical-align:-1px;background:var(--lc,transparent);border:1.5px solid var(--lb,var(--line))}
+</style>
+</head>
+<body>
+<div id="app"><div class="loading">جارٍ التحميل…</div></div>
+<div id="layer"></div>
+<div id="toast-slot"></div>
+
+<script>
+(function(){
+  var SELF_JS = document.currentScript ? document.currentScript.textContent : '';
+  var SELF_CSS = ''; Array.prototype.forEach.call(document.querySelectorAll('style'), function(s){ if (!SELF_CSS && s.textContent.indexOf('--brand') > -1) SELF_CSS = s.textContent; });
+  var COLORS = ['#E4572E','#2E86AB','#7A5CC9','#2F9E6F','#E0A100','#C2457A'];
+  var LS_KEY = 'med-tracker-v1';
+  var LOC = 'ar-u-ca-gregory-nu-latn';
+  var meds = {};
+  var dl = null;
+  var db = null, base = '', storeStatus = '';
+  function storageNote(){ return db ? '' : 'البيانات محفوظة على هذا الجهاز فقط' + (storeStatus ? ' (' + storeStatus + ')' : ''); }
+  var route = { name: 'home' };
+  var toastTimer = null;
+
+  var app = document.getElementById('app');
+  var layer = document.getElementById('layer');
+  var toastSlot = document.getElementById('toast-slot');
+
+  /* ---------- helpers ---------- */
+  function esc(s){ return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function newId(p){ return p + Date.now().toString(36) + Math.random().toString(36).slice(2,7); }
+  function clone(o){ return JSON.parse(JSON.stringify(o)); }
+  function pad(n){ return (n < 10 ? '0' : '') + n; }
+  function dayKey(t){ var d = new Date(t); return d.getFullYear() + '-' + pad(d.getMonth()+1) + '-' + pad(d.getDate()); }
+  function startOfDay(t){ var d = new Date(t); d.setHours(0,0,0,0); return d.getTime(); }
+  function fmtTime(t){ return new Date(t).toLocaleTimeString(LOC, { hour: 'numeric', minute: '2-digit' }); }
+  function fmtLongDay(t){ return new Date(t).toLocaleDateString(LOC, { weekday: 'long', day: 'numeric', month: 'long' }); }
+  function fmtDayTitle(t){
+    var diff = Math.round((startOfDay(Date.now()) - startOfDay(t)) / 86400000);
+    if (diff === 0) return 'اليوم';
+    if (diff === 1) return 'أمس';
+    return fmtLongDay(t);
+  }
+  var rtf = null;
+  try { rtf = new Intl.RelativeTimeFormat(LOC, { numeric: 'auto' }); } catch(e){}
+  function fmtAgo(t){
+    var s = Math.round((t - Date.now()) / 1000);
+    var a = Math.abs(s);
+    if (!rtf) return fmtTime(t);
+    if (a < 60) return rtf.format(0, 'second');
+    if (a < 3600) return rtf.format(Math.round(s/60), 'minute');
+    if (a < 86400) return rtf.format(Math.round(s/3600), 'hour');
+    return rtf.format(Math.round(s/86400), 'day');
+  }
+  function timesWord(n){
+    if (n === 0) return 'لم تُؤخذ اليوم';
+    if (n === 1) return 'اليوم: مرة واحدة';
+    if (n === 2) return 'اليوم: مرتان';
+    if (n <= 10) return 'اليوم: ' + n + ' مرات';
+    return 'اليوم: ' + n + ' مرة';
+  }
+  function countWord(n){
+    if (n === 1) return 'جرعة واحدة';
+    if (n === 2) return 'جرعتان';
+    if (n <= 10) return n + ' جرعات';
+    return n + ' جرعة';
+  }
+  function sortedMeds(){ return Object.keys(meds).map(function(k){return meds[k];}).sort(function(a,b){ return (a.createdAt||0) - (b.createdAt||0); }); }
+  function todayCount(m){ var s = startOfDay(Date.now()); return m.logs.filter(function(l){ return l.t >= s; }).length; }
+  function lastLog(m){ var best = null; m.logs.forEach(function(l){ if (!best || l.t > best.t) best = l; }); return best; }
+  function goal(m){ return m.times > 0 ? m.times : 0; }
+  function daysWord(n, gen){ if (n === 1) return 'يوم واحد'; if (n === 2) return gen ? 'يومين' : 'يومان'; if (n <= 10) return n + ' أيام'; return n + ' يومًا'; }
+  function monthsWord(n){ if (n === 1) return 'شهر واحد'; if (n === 2) return 'شهران'; if (n <= 10) return n + ' أشهر'; return n + ' شهرًا'; }
+  function medStart(m){
+    if (m.startDate) { var p = m.startDate.split('-'); return new Date(+p[0], +p[1] - 1, +p[2]).getTime(); }
+    var s = startOfDay(m.createdAt || Date.now());
+    m.logs.forEach(function(l){ var d = startOfDay(l.t); if (d < s) s = d; });
+    return s;
+  }
+  function plan(m){
+    if (!(m.duration > 0)) return null;
+    var D = m.duration, g = goal(m) || 1, today0 = startOfDay(Date.now()), start = medStart(m);
+    var counts = {}; m.logs.forEach(function(l){ var k = dayKey(l.t); counts[k] = (counts[k] || 0) + 1; });
+    var done = 0;
+    for (var i = 0; i < D; i++) {
+      var ds = new Date(start); ds.setDate(ds.getDate() + i);
+      var t = ds.getTime(); if (t > today0) break;
+      if ((counts[dayKey(t)] || 0) >= g) done++;
+    }
+    var elapsed = Math.max(0, Math.min(D, Math.round((today0 - start) / 86400000) + 1));
+    var endD = new Date(start); endD.setDate(endD.getDate() + D - 1);
+    return { D: D, done: done, pct: Math.min(100, Math.round(done / D * 100)), left: D - elapsed, end: endD.getTime(), notStarted: today0 < start, finished: today0 > endD.getTime() };
+  }
+  function barHtml(p){ return '<span class="pbar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="' + p.pct + '"><i style="width:' + p.pct + '%"></i></span>'; }
+  function lateInfo(m){
+    var p = plan(m); if (p && (p.finished || p.notStarted)) return null;
+    var last = lastLog(m), ref = last ? last.t : medStart(m);
+    var diff = Date.now() - ref;
+    if (diff <= 2 * 86400000) return null;
+    return { days: Math.floor(diff / 86400000), hasLog: !!last };
+  }
+  function planLine(m){
+    var p = plan(m); if (!p) return '';
+    return '<span>مدة العلاج: أنجزت ' + p.pct + '% (' + p.done + ' من ' + daysWord(p.D, true) + ')</span>' + barHtml(p);
+  }
+  function planBlock(m){
+    var p = plan(m); if (!p) return '';
+    var status = p.notStarted ? 'لم يبدأ العلاج بعد' : p.finished ? 'انتهت مدة العلاج' : p.left === 0 ? 'اليوم هو آخر يوم في العلاج' : 'المتبقي: ' + daysWord(p.left, false);
+    return '<div class="plan"><div class="plan-h"><b>' + p.pct + '%</b><span>أنجزت ' + p.done + ' من ' + daysWord(p.D, true) + '</span></div>' + barHtml(p) +
+      (m.durUnit === 'months' && m.durValue ? '<p>مدة العلاج: ' + monthsWord(m.durValue) + ' (' + daysWord(p.D, true) + ')</p>' : '') + '<p>' + status + '</p><p>' + (p.finished ? 'انتهى في ' : 'ينتهي في ') + esc(fmtLongDay(p.end)) + '</p></div>';
+  }
+  function fmtClock(hhmm){ var p = String(hhmm).split(':'); return new Date(2000, 0, 1, +p[0], +p[1]).toLocaleTimeString(LOC, { hour: 'numeric', minute: '2-digit' }); }
+  function schedText(m){ return (m.schedule || []).map(fmtClock).join('، '); }
+  function schedLine(m){ return m.schedule && m.schedule.length ? '<span>المواعيد: ' + esc(schedText(m)) + '</span>' : ''; }
+  function isDone(m){ var g = goal(m); return g > 0 && todayCount(m) >= g; }
+  function lightHtml(m){ return isDone(m) ? '<span class="light" role="img" aria-label="اكتملت جرعات اليوم"></span>' : ''; }
+  function progressText(m){
+    var g = goal(m), n = todayCount(m);
+    if (!g) return timesWord(n);
+    return isDone(m) ? 'اكتملت جرعات اليوم (' + n + ' من ' + g + ')' : 'اليوم: ' + n + ' من ' + g;
+  }
+
+  var ICON_UP = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V5M7 9l5-5 5 5M5 20h14"/></svg>';
+  var ICON_CODE = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/></svg>';
+  var ICON_DL = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg>';
+  var ICON_CAL = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>';
+  var ICON_BACK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>';
+  var ICON_X = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 12a2 2 0 002 2h6a2 2 0 002-2l1-12M9 7V4h6v3"/></svg>';
+
+  /* ---------- storage ---------- */
+  function loadSeed(){
+    if (Object.keys(meds).length) return;
+    var el = document.getElementById('seed'); if (!el) return;
+    try { var s = JSON.parse(el.textContent); (s.meds || []).forEach(function(x){ if (x && x.id) { if (!x.logs) x.logs = []; meds[x.id] = x; } }); saveLocal(); } catch(e){}
+  }
+  function saveLocal(){ try { localStorage.setItem(LS_KEY, JSON.stringify(meds)); } catch(e){} }
+  function loadLocal(){ try { var raw = localStorage.getItem(LS_KEY); if (raw) meds = JSON.parse(raw) || {}; } catch(e){ meds = {}; } }
+  function saveMed(m){
+    if (db) {
+      return db.doc(base + '/' + m.id).set(clone(m)).catch(function(e){ toast('(' + ((e && (e.code || e.message)) || '?') + ') تعذّر الحفظ. تحقق من الاتصال وحاول مرة أخرى.'); });
+    }
+    saveLocal(); return Promise.resolve();
+  }
+  function deleteMedStored(id){
+    if (db) { return db.doc(base + '/' + id).delete().catch(function(){ toast('تعذّر الحذف. حاول مرة أخرى.'); }); }
+    saveLocal(); return Promise.resolve();
+  }
+
+  /* ---------- toast ---------- */
+  function toast(msg, undo){
+    clearTimeout(toastTimer);
+    toastSlot.innerHTML = '<div class="toast" role="status"><span>' + esc(msg) + '</span>' + (undo ? '<button id="undo">تراجع</button>' : '') + '</div>';
+    if (undo) document.getElementById('undo').onclick = function(){ toastSlot.innerHTML = ''; undo(); };
+    toastTimer = setTimeout(function(){ toastSlot.innerHTML = ''; }, undo ? 6000 : 3500);
+  }
+
+  /* ---------- logging ---------- */
+  function addLog(medId, data){
+    var m = meds[medId]; if (!m) return;
+    var log = { id: newId('l'), t: data.t, dose: data.dose || '', note: data.note || '' };
+    m.logs.push(log);
+    saveMed(m); render();
+    toast('تم تسجيل جرعة ' + m.name, function(){ removeLog(medId, log.id, true); });
+  }
+  function removeLog(medId, logId, quiet){
+    var m = meds[medId]; if (!m) return;
+    m.logs = m.logs.filter(function(l){ return l.id !== logId; });
+    saveMed(m); render();
+    if (!quiet) toast('تم حذف الجرعة');
+  }
+
+  /* ---------- dialogs ---------- */
+  function closeLayer(){ layer.innerHTML = ''; }
+  function openSheet(html){
+    layer.innerHTML = '<div class="overlay" id="ov"><div class="sheet" role="dialog" aria-modal="true">' + html + '</div></div>';
+    document.getElementById('ov').addEventListener('click', function(e){ if (e.target.id === 'ov') closeLayer(); });
+  }
+  function confirmSheet(title, text, okLabel, onOk){
+    openSheet('<h2>' + esc(title) + '</h2><p>' + esc(text) + '</p><div class="btns"><button class="btn ghost" id="c-no">إلغاء</button><button class="btn danger" id="c-ok">' + esc(okLabel) + '</button></div>');
+    document.getElementById('c-no').onclick = closeLayer;
+    document.getElementById('c-ok').onclick = function(){ closeLayer(); onOk(); };
+  }
+  function medSheet(m){
+    var editing = !!m;
+    var color = editing ? m.color : COLORS[Object.keys(meds).length % COLORS.length];
+    openSheet(
+      '<h2>' + (editing ? 'تعديل الدواء' : 'إضافة دواء') + '</h2>' +
+      '<label class="f">اسم الدواء<input type="text" id="f-name" autocomplete="off" value="' + esc(editing ? m.name : '') + '"></label>' +
+      '<label class="f">الجرعة المعتادة<input type="text" id="f-dose" autocomplete="off" placeholder="مثال: حبة واحدة أو 500 ملغ" value="' + esc(editing ? m.dose : '') + '"></label>' +
+      '<label class="f">عدد مرات أخذه في اليوم<input type="number" id="f-times" inputmode="numeric" min="1" max="24" value="' + esc(editing && m.times ? m.times : 1) + '"></label>' +
+      '<div class="f" style="font-size:14px;font-weight:500">مواعيد أخذ الجرعات (اختياري)<div class="sched" id="f-sched-in"></div></div>' +
+      '<div class="row2"><label class="f">مدة العلاج (اختياري)<span class="dur"><input type="number" id="f-dur" inputmode="numeric" min="1" max="3650" value="' + esc(editing && (m.durValue || m.duration) ? (m.durValue || m.duration) : '') + '"><select id="f-unit"><option value="days">أيام</option><option value="months"' + (editing && m.durUnit === 'months' ? ' selected' : '') + '>أشهر</option></select></span></label><label class="f">تاريخ البدء<input type="date" id="f-start" value="' + esc(editing ? dayKey(medStart(m)) : dayKey(Date.now())) + '"></label></div>' +
+      '<label class="f">ملاحظات (اختياري)<textarea id="f-note" placeholder="مثال: بعد الأكل، مرتين في اليوم">' + esc(editing ? m.note : '') + '</textarea></label>' +
+      '<div class="f" style="font-size:14px;font-weight:500">اللون<div class="swatches" role="radiogroup" aria-label="اللون" style="margin-top:8px">' +
+        COLORS.map(function(c){ return '<button class="sw" role="radio" aria-checked="' + (c === color) + '" aria-label="لون" data-color="' + c + '" style="--c:' + c + '"></button>'; }).join('') +
+      '</div></div>' +
+      '<div class="btns"><button class="btn ghost" id="s-cancel">إلغاء</button><button class="btn" id="s-save">' + (editing ? 'حفظ التعديلات' : 'إضافة الدواء') + '</button></div>'
+    );
+    var sheet = layer.querySelector('.sheet');
+    var cur = editing && m.schedule ? m.schedule.slice() : [];
+    function drawSched(){
+      var n = Math.min(24, Math.max(1, parseInt(document.getElementById('f-times').value, 10) || 1));
+      var box = document.getElementById('f-sched-in');
+      var vals = []; box.querySelectorAll('input').forEach(function(i){ vals.push(i.value); });
+      if (vals.length) cur = vals;
+      var h = '';
+      for (var i = 0; i < n; i++) h += '<label class="sch"><span>الجرعة ' + (i + 1) + '</span><input type="time" value="' + esc(cur[i] || '') + '"></label>';
+      box.innerHTML = h;
+    }
+    document.getElementById('f-times').addEventListener('input', drawSched);
+    drawSched();
+    sheet.querySelectorAll('.sw').forEach(function(b){
+      b.onclick = function(){ color = b.dataset.color; sheet.querySelectorAll('.sw').forEach(function(x){ x.setAttribute('aria-checked', x === b ? 'true' : 'false'); }); };
+    });
+    document.getElementById('s-cancel').onclick = closeLayer;
+    document.getElementById('s-save').onclick = function(){
+      var name = document.getElementById('f-name').value.trim();
+      if (!name) { document.getElementById('f-name').focus(); toast('اكتب اسم الدواء أولاً'); return; }
+      var dose = document.getElementById('f-dose').value.trim();
+      var note = document.getElementById('f-note').value.trim();
+      var times = Math.min(24, Math.max(1, parseInt(document.getElementById('f-times').value, 10) || 1));
+      var schedule = []; document.querySelectorAll('#f-sched-in input').forEach(function(i){ if (i.value) schedule.push(i.value); }); schedule.sort();
+      var durUnit = document.getElementById('f-unit').value;
+      var durValue = Math.min(durUnit === 'months' ? 120 : 3650, parseInt(document.getElementById('f-dur').value, 10) || 0);
+      var duration = 0;
+      var startDate = document.getElementById('f-start').value || dayKey(Date.now());
+      if (durValue > 0) {
+        var sp = startDate.split('-'), s0 = new Date(+sp[0], +sp[1] - 1, +sp[2]);
+        if (durUnit === 'months') {
+          var tm = s0.getMonth() + durValue, e0 = new Date(s0.getFullYear(), tm, Math.min(s0.getDate(), new Date(s0.getFullYear(), tm + 1, 0).getDate()));
+          duration = Math.round((e0 - s0) / 86400000);
+        } else duration = durValue;
+      }
+      if (editing) {
+        m.name = name; m.dose = dose; m.note = note; m.color = color; m.times = times; m.schedule = schedule; m.duration = duration; m.durValue = durValue; m.durUnit = durUnit; m.startDate = startDate;
+        saveMed(m);
+      } else {
+        var nm = { id: newId('m'), name: name, dose: dose, note: note, color: color, times: times, schedule: schedule, duration: duration, durValue: durValue, durUnit: durUnit, startDate: startDate, createdAt: Date.now(), logs: [] };
+        meds[nm.id] = nm; saveMed(nm);
+      }
+      closeLayer(); render();
+    };
+    setTimeout(function(){ var f = document.getElementById('f-name'); if (f && !editing) f.focus(); }, 50);
+  }
+
+  /* ---------- views ---------- */
+  function go(r){
+    route = r;
+    try { history.replaceState(null, '', r.name === 'med' ? '#med/' + r.id : '#'); } catch(e){}
+    render(); window.scrollTo(0, 0);
+  }
+
+  function homeView(){
+    var list = sortedMeds();
+    var h = '<header class="top"><h1>أدويتي</h1><p class="sub">' + esc(fmtLongDay(Date.now())) + '</p></header>';
+    if (!list.length) {
+      if (storageNote()) h += '<p class="note-local">' + esc(storageNote()) + '</p>'; h += '<div class="empty"><h2>لا توجد أدوية بعد</h2><p>أضف أول دواء لتبدأ بتوثيق الجرعات وأوقاتها.</p><button class="btn" data-act="add">إضافة دواء</button></div>';
+      return h;
+    }
+    h += '<ul class="meds">' + list.map(function(m){
+      var last = lastLog(m), late = lateInfo(m);
+      return '<li class="card' + (late ? ' late' : '') + '" style="--c:' + (late ? '#D64545' : m.color) + '">' +
+        '<button class="card-main" data-act="open" data-id="' + m.id + '">' +
+          '<span class="name">' + esc(m.name) + lightHtml(m) + '</span>' +
+          (m.dose ? '<span class="dose">' + esc(m.dose) + '</span>' : '') +
+          '<span class="meta"><b>' + progressText(m) + '</b>' + (late ? '<span class="late-msg">⚠ ' + (late.hasLog ? 'لم تُؤخذ منذ ' : 'لم تُسجَّل جرعة منذ ') + daysWord(late.days, true) + '</span>' : '') + schedLine(m) + planLine(m) + '<span>' + (last ? 'آخر جرعة: ' + esc(fmtAgo(last.t)) : 'لا توجد جرعات مسجلة') + '</span></span>' +
+        '</button>' +
+        '<button class="rep" data-act="report" data-id="' + m.id + '" aria-label="تقرير الشهر لدواء ' + esc(m.name) + '">' + ICON_CAL + '</button>' +
+        '<button class="take" data-act="quick" data-id="' + m.id + '" aria-label="تسجيل جرعة ' + esc(m.name) + ' الآن">أخذتها الآن</button>' +
+      '</li>';
+    }).join('') + '</ul>';
+    if (storageNote()) h += '<p class="note-local">' + esc(storageNote()) + '</p>'; if (false) h += '<p class="note-local">البيانات محفوظة على هذا الجهاز فقط.</p>';
+    h += '<p class="bk">' +
+      (dl ? '<button class="ico-q" data-act="exportdata" title="تصدير بياناتي" aria-label="تصدير بياناتي">' + ICON_DL + '</button>' : '') +
+      '<button class="ico-q" data-act="importdata" title="استيراد بياناتي" aria-label="استيراد بياناتي">' + ICON_UP + '</button>' +
+      (dl ? '<button class="ico-q" data-act="exportapp" title="تصدير التطبيق كاملًا مع بياناتك" aria-label="تصدير التطبيق كاملًا مع بياناتك">' + ICON_CODE + '</button>' : '') +
+      '</p>';
+    h += '<button class="fab" data-act="add">+ إضافة دواء</button>';
+    return h;
+  }
+
+  function medView(m){
+    var logs = m.logs.slice().sort(function(a,b){ return b.t - a.t; });
+    var s0 = startOfDay(Date.now());
+    var week = logs.filter(function(l){ return l.t >= s0 - 6*86400000; }).length;
+    var today = logs.filter(function(l){ return l.t >= s0; }).length;
+    var now = new Date();
+    var h = '<div class="bar"><button class="back" data-act="home">' + ICON_BACK + 'كل الأدوية</button>' +
+      '<span><button class="link" data-act="report" data-id="' + m.id + '">التقرير</button><button class="link" data-act="edit">تعديل</button><button class="link danger" data-act="delmed">حذف</button></span></div>' +
+      '<div class="hero" style="--c:' + m.color + '"><h1>' + esc(m.name) + lightHtml(m) + '</h1>' +
+        (goal(m) ? '<p>عدد المرات يوميًا: ' + goal(m) + '</p>' : '') +
+        (m.schedule && m.schedule.length ? '<p>المواعيد: ' + esc(schedText(m)) + '</p>' : '') +
+        (m.dose ? '<p>الجرعة المعتادة: ' + esc(m.dose) + '</p>' : '') +
+        (m.note ? '<p>' + esc(m.note) + '</p>' : '') + '</div>' +
+      '<div class="stats"><div class="stat"><b>' + today + (goal(m) ? '/' + goal(m) : '') + '</b><span>اليوم</span></div><div class="stat"><b>' + week + '</b><span>آخر ٧ أيام</span></div><div class="stat"><b>' + logs.length + '</b><span>الإجمالي</span></div></div>' +
+      planBlock(m) + '<button class="btn block" data-act="quick" data-id="' + m.id + '">أخذتها الآن' + (m.dose ? ' (' + esc(m.dose) + ')' : '') + '</button>' +
+      (logs.length ? '<p class="last" style="margin-top:10px">آخر جرعة: ' + esc(fmtAgo(logs[0].t)) + '</p>' : '') +
+      '<details class="other"><summary>تسجيل جرعة بوقت آخر</summary><div class="body">' +
+        '<div class="row2"><label class="f">التاريخ<input type="date" id="l-date" value="' + dayKey(now) + '"></label>' +
+        '<label class="f">الوقت<input type="time" id="l-time" value="' + pad(now.getHours()) + ':' + pad(now.getMinutes()) + '"></label></div>' +
+        '<label class="f">الجرعة<input type="text" id="l-dose" autocomplete="off" value="' + esc(m.dose) + '"></label>' +
+        '<label class="f">ملاحظة (اختياري)<input type="text" id="l-note" autocomplete="off"></label>' +
+        '<button class="btn" data-act="addlog" data-id="' + m.id + '">حفظ الجرعة</button>' +
+      '</div></details>' +
+      '<section class="hist"><h2>السجل</h2>';
+    if (!logs.length) {
+      h += '<div class="nolog">لم تسجّل أي جرعة بعد. اضغط «أخذتها الآن» عند أخذ الدواء.</div>';
+    } else {
+      var groups = [], idx = {};
+      logs.forEach(function(l){
+        var k = dayKey(l.t);
+        if (!(k in idx)) { idx[k] = groups.length; groups.push({ t: l.t, items: [] }); }
+        groups[idx[k]].items.push(l);
+      });
+      h += groups.map(function(g){
+        return '<div class="day"><div class="day-h">' + esc(fmtDayTitle(g.t)) + '<span>' + countWord(g.items.length) + '</span></div>' +
+          g.items.map(function(l){
+            return '<div class="log"><div class="t">' + esc(fmtTime(l.t)) + '</div>' +
+              '<div class="d">' + (esc(l.dose) || 'بدون جرعة محددة') + (l.note ? '<small>' + esc(l.note) + '</small>' : '') + '</div>' +
+              '<button class="x" data-act="dellog" data-id="' + m.id + '" data-log="' + l.id + '" aria-label="حذف هذه الجرعة">' + ICON_X + '</button></div>';
+          }).join('') + '</div>';
+      }).join('');
+    }
+    h += '</section>';
+    return h;
+  }
+
+  function dayInfo(id, ds){
+    var m = meds[id]; var k = dayKey(ds);
+    var items = m.logs.filter(function(l){ return dayKey(l.t) === k; }).sort(function(a,b){ return a.t - b.t; });
+    openSheet('<h2>' + esc(fmtLongDay(ds)) + '</h2>' + (items.length ? items.map(function(l){
+      return '<div class="log"><div class="t">' + esc(fmtTime(l.t)) + '</div><div class="d">' + (esc(l.dose) || 'بدون جرعة محددة') + (l.note ? '<small>' + esc(l.note) + '</small>' : '') + '</div></div>';
+    }).join('') : '<p>لم تُسجَّل أي جرعة في هذا اليوم.</p>') + '<button class="btn ghost" id="di-x">إغلاق</button>');
+    document.getElementById('di-x').onclick = closeLayer;
+  }
+
+  function reportView(m){
+    var y = route.y, mo = route.m, now = new Date();
+    var g = goal(m) || 1;
+    var today0 = startOfDay(Date.now());
+    var start = startOfDay(m.createdAt || Date.now());
+    m.logs.forEach(function(l){ var d = startOfDay(l.t); if (d < start) start = d; });
+    var counts = {};
+    m.logs.forEach(function(l){ var k = dayKey(l.t); counts[k] = (counts[k] || 0) + 1; });
+    var dim = new Date(y, mo + 1, 0).getDate();
+    var offset = (new Date(y, mo, 1).getDay() + 1) % 7;
+    var full = 0, part = 0, miss = 0, total = 0, cells = '';
+    var words = { full: 'مكتمل', part: 'ناقص', miss: 'لم تؤخذ', pend: 'لم تكتمل بعد', na: '' };
+    for (var i = 0; i < offset; i++) cells += '<div class="cell empty-c"></div>';
+    for (var d = 1; d <= dim; d++) {
+      var ds = new Date(y, mo, d).getTime(); var c = counts[dayKey(ds)] || 0; total += c;
+      var cls = 'na', mark = c > 0 ? String(c) : '';
+      if (ds <= today0 && ds >= start) {
+        if (c >= g) { cls = 'full'; mark = '✓'; full++; }
+        else if (c > 0) { cls = 'part'; mark = c + '/' + g; part++; }
+        else if (ds === today0) { cls = 'pend'; mark = ''; }
+        else { cls = 'miss'; mark = '✕'; miss++; }
+      }
+      cells += '<button class="cell ' + cls + (ds === today0 ? ' today' : '') + '" data-act="dayinfo" data-id="' + m.id + '" data-day="' + ds + '" aria-label="' + esc(fmtLongDay(ds) + (words[cls] ? ': ' + words[cls] : '')) + '"><b>' + d + '</b><i>' + mark + '</i></button>';
+    }
+    var wd = ['السبت','الأحد','الاثنين','الثلاثاء','الأربعاء','الخميس','الجمعة'];
+    var title = new Date(y, mo, 1).toLocaleDateString(LOC, { month: 'long', year: 'numeric' });
+    var isCur = (y === now.getFullYear() && mo === now.getMonth());
+    return '<div class="bar"><button class="back" data-act="home">' + ICON_BACK + 'كل الأدوية</button><button class="link" data-act="open" data-id="' + m.id + '">صفحة الدواء</button></div>' +
+      '<div class="hero" style="--c:' + m.color + '"><h1>' + esc(m.name) + '</h1><p>تقرير الشهر</p>' + (goal(m) ? '<p>المطلوب يوميًا: ' + goal(m) + '</p>' : '') + '</div>' +
+      '<div class="mnav"><button class="arr" data-act="rmonth" data-d="-1" aria-label="الشهر السابق">' + ICON_BACK + '</button><h2>' + esc(title) + '</h2><button class="arr nx" data-act="rmonth" data-d="1" aria-label="الشهر التالي">' + ICON_BACK + '</button></div>' +
+      (isCur ? '' : '<p class="last"><button class="link" data-act="rmonth" data-d="0">العودة إلى الشهر الحالي</button></p>') +
+      '<div class="stats"><div class="stat"><b>' + full + '</b><span>أيام مكتملة</span></div><div class="stat"><b>' + part + '</b><span>أيام ناقصة</span></div><div class="stat"><b>' + miss + '</b><span>أيام فائتة</span></div></div>' +
+      '<div class="cal">' + wd.map(function(n){ return '<div class="wd">' + n + '</div>'; }).join('') + cells + '</div>' +
+      '<div class="legend"><span style="--lc:#2FBF71;--lb:#2FBF71">✓ مكتمل</span><span style="--lc:#F6D36A;--lb:#E0A100">ناقص (المأخوذ/المطلوب)</span><span style="--lc:#F3C6C6;--lb:#D64545">✕ فائت</span><span>باهت: قبل البدء أو لم يحن بعد</span></div>' +
+      '<p class="last" style="margin-top:16px">إجمالي الجرعات المسجلة في هذا الشهر: ' + total + '</p>';
+  }
+
+  function exportApp(){
+    if (!dl) return;
+    if (!SELF_JS || !SELF_CSS) { toast('تعذّر تجهيز ملف التطبيق في هذا العرض'); return; }
+    var seed = JSON.stringify({ meds: sortedMeds() }).replace(/</g, '\\u003c');
+    var html = '<!DOCTYPE html>\n<html lang="ar" dir="rtl">\n<head>\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n<title>سجل الأدوية</title>\n<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">\n<style>' + SELF_CSS + '</style>\n</head>\n<body>\n<div id="app"><div class="loading">جارٍ التحميل…</div></div>\n<div id="layer"></div>\n<div id="toast-slot"></div>\n<script type="application/json" id="seed">' + seed + '<' + '/script>\n<script>' + SELF_JS + '<' + '/script>\n</body>\n</html>\n';
+    dl.save({ filename: 'index.html', data: html })
+      .then(function(){ toast('تم حفظ ملف التطبيق'); })
+      .catch(function(e){
+        if (e && e.code === 'declined') return;
+        if (e && (e.code === 'extension_not_enabled' || e.code === 'rejected_extension')) { toast('حفظ ملفات HTML غير متاح في هذا العرض'); return; }
+        toast('تعذّر حفظ الملف');
+      });
+  }
+
+  function exportData(){
+    if (!dl) return;
+    var now = new Date();
+    var data = { app: 'medication-tracker', version: 1, exportedAt: now.toISOString(), meds: sortedMeds() };
+    dl.save({ filename: 'medication-data-' + dayKey(now.getTime()) + '.json', data: JSON.stringify(data, null, 2) })
+      .then(function(){ toast('تم حفظ ملف بياناتك'); })
+      .catch(function(e){ if (e && e.code === 'declined') return; toast('تعذّر حفظ الملف'); });
+  }
+
+  function cleanMed(x){
+    var okId = /^[A-Za-z0-9_.~:@+-]{1,100}$/;
+    if (!x || typeof x.id !== 'string' || !okId.test(x.id) || typeof x.name !== 'string' || !x.name.trim()) return null;
+    var logs = [];
+    (Array.isArray(x.logs) ? x.logs : []).forEach(function(l){
+      if (l && typeof l.id === 'string' && okId.test(l.id) && isFinite(+l.t)) logs.push({ id: l.id, t: +l.t, dose: String(l.dose || '').slice(0, 200), note: String(l.note || '').slice(0, 300) });
+    });
+    var times = Math.min(24, Math.max(0, parseInt(x.times, 10) || 0));
+    var sched = (Array.isArray(x.schedule) ? x.schedule : []).filter(function(t){ return /^\d{2}:\d{2}$/.test(t); }).slice(0, 24);
+    return {
+      id: x.id, name: x.name.trim().slice(0, 120), dose: String(x.dose || '').slice(0, 200), note: String(x.note || '').slice(0, 500),
+      color: /^#[0-9A-Fa-f]{6}$/.test(x.color || '') ? x.color : COLORS[0],
+      times: times, schedule: sched,
+      duration: Math.min(3650, Math.max(0, parseInt(x.duration, 10) || 0)),
+      durValue: Math.min(3650, Math.max(0, parseInt(x.durValue, 10) || 0)),
+      durUnit: x.durUnit === 'months' ? 'months' : 'days',
+      startDate: /^\d{4}-\d{2}-\d{2}$/.test(x.startDate || '') ? x.startDate : '',
+      createdAt: isFinite(+x.createdAt) ? +x.createdAt : Date.now(),
+      logs: logs
+    };
+  }
+
+  function importData(){
+    var inp = document.createElement('input');
+    inp.type = 'file'; inp.accept = '.json,application/json';
+    inp.onchange = function(){
+      var f = inp.files && inp.files[0]; if (!f) return;
+      var r = new FileReader();
+      r.onload = function(){
+        var d;
+        try { d = JSON.parse(r.result); } catch(e){ toast('الملف غير صالح'); return; }
+        var list = Array.isArray(d) ? d : (d && Array.isArray(d.meds) ? d.meds : null);
+        if (!list || (d && d.app && d.app !== 'medication-tracker')) { toast('هذا ليس ملف بيانات هذا التطبيق'); return; }
+        var addedMeds = 0, addedLogs = 0;
+        list.forEach(function(raw){
+          var c = cleanMed(raw); if (!c) return;
+          var cur = meds[c.id];
+          if (!cur) { meds[c.id] = c; addedMeds++; addedLogs += c.logs.length; saveMed(c); return; }
+          var have = {}; cur.logs.forEach(function(l){ have[l.id] = 1; });
+          var n = 0; c.logs.forEach(function(l){ if (!have[l.id]) { cur.logs.push(l); n++; } });
+          if (n) { addedLogs += n; saveMed(cur); }
+        });
+        render();
+        toast(addedMeds || addedLogs ? 'تم استيراد ' + addedMeds + ' من الأدوية و' + addedLogs + ' من الجرعات' : 'لا جديد في هذا الملف');
+      };
+      r.onerror = function(){ toast('تعذّر قراءة الملف'); };
+      r.readAsText(f);
+    };
+    inp.click();
+  }
+
+  function exportBackup(){
+    if (!dl) return;
+    var now = new Date();
+    var data = { app: 'medication-tracker', version: 1, exportedAt: now.toISOString(), meds: sortedMeds() };
+    dl.save({ filename: 'medication-backup-' + dayKey(now.getTime()) + '.json', data: JSON.stringify(data, null, 2) })
+      .then(function(){ toast('تم حفظ النسخة الاحتياطية'); })
+      .catch(function(e){ if (e && e.code === 'declined') return; toast('تعذّر حفظ الملف'); });
+  }
+
+  function render(){
+    if (route.name === 'report' && meds[route.id]) app.innerHTML = reportView(meds[route.id]);
+    else if (route.name === 'med' && meds[route.id]) app.innerHTML = medView(meds[route.id]);
+    else { route = { name: 'home' }; app.innerHTML = homeView(); }
+  }
+
+  /* ---------- events ---------- */
+  document.addEventListener('click', function(e){
+    var el = e.target.closest('[data-act]');
+    if (!el || layer.contains(el) && el.closest('.sheet')) return;
+    var act = el.dataset.act, id = el.dataset.id;
+    if (act === 'add') medSheet(null);
+    else if (act === 'export') exportBackup();
+    else if (act === 'exportapp') exportApp();
+    else if (act === 'exportdata') exportData();
+    else if (act === 'importdata') importData();
+    else if (act === 'report') { var nw = new Date(); go({ name: 'report', id: id, y: nw.getFullYear(), m: nw.getMonth() }); }
+    else if (act === 'rmonth') {
+      var dd = +el.dataset.d, base0 = new Date(), tgt = dd === 0 ? new Date(base0.getFullYear(), base0.getMonth(), 1) : new Date(route.y, route.m + dd, 1);
+      route = { name: 'report', id: route.id, y: tgt.getFullYear(), m: tgt.getMonth() }; render();
+    }
+    else if (act === 'dayinfo') dayInfo(id, +el.dataset.day);
+    else if (act === 'open') go({ name: 'med', id: id });
+    else if (act === 'home') go({ name: 'home' });
+    else if (act === 'quick') { var m = meds[id]; addLog(id, { t: Date.now(), dose: m.dose }); }
+    else if (act === 'edit') medSheet(meds[route.id]);
+    else if (act === 'delmed') {
+      var mm = meds[route.id];
+      confirmSheet('حذف ' + mm.name + '؟', 'سيُحذف الدواء وكل جرعاته المسجلة نهائياً.', 'حذف الدواء', function(){
+        delete meds[mm.id]; deleteMedStored(mm.id); go({ name: 'home' }); toast('تم حذف الدواء');
+      });
+    }
+    else if (act === 'dellog') {
+      confirmSheet('حذف هذه الجرعة؟', 'ستُزال من السجل نهائياً.', 'حذف', function(){ removeLog(id, el.dataset.log); });
+    }
+    else if (act === 'addlog') {
+      var date = document.getElementById('l-date').value, time = document.getElementById('l-time').value;
+      if (!date || !time) { toast('اختر التاريخ والوقت'); return; }
+      var t = new Date(date + 'T' + time).getTime();
+      if (isNaN(t)) { toast('التاريخ أو الوقت غير صحيح'); return; }
+      addLog(id, { t: t, dose: document.getElementById('l-dose').value.trim(), note: document.getElementById('l-note').value.trim() });
+    }
+  });
+
+  /* ---------- init ---------- */
+  async function init(){
+    try {
+      if (window.claude && claude.use) {
+        var res = await Promise.all([claude.use('db'), claude.use('user')]);
+        if (res[0] && res[1]) {
+          var uid = await res[1].id();
+          if (uid) { db = res[0]; base = 'data/users/' + uid; storeStatus = ''; }
+        }
+      }
+    } catch(e){ db = null; }
+    if (db) {
+      try {
+        var snap = await db.collection(base).get();
+        snap.docs.forEach(function(d){ var v = clone(d.data()); if (!v.logs) v.logs = []; meds[d.id] = v; });
+      } catch(e){ db = null; }
+    }
+    if (!db) { loadLocal(); loadSeed();  }
+    else {
+      try {
+        var raw = localStorage.getItem(LS_KEY);
+        if (raw) {
+          var old = JSON.parse(raw) || {};
+          Object.keys(old).forEach(function(k){ if (!meds[k]) { meds[k] = old[k]; if (!meds[k].logs) meds[k].logs = []; saveMed(meds[k]); } });
+          localStorage.removeItem(LS_KEY);
+        }
+      } catch(e){}
+    }
+    Object.keys(meds).forEach(function(k){ if (!meds[k].logs) meds[k].logs = []; });
+    try { if (window.claude && claude.use) dl = await claude.use('downloads'); } catch(e){ dl = null; }
+    var m = /^#med\/(.+)$/.exec(location.hash || '');
+    if (m && meds[m[1]]) route = { name: 'med', id: m[1] };
+    render();
+  }
+  init();
+})();
+</script>
+</body>
+</html>
