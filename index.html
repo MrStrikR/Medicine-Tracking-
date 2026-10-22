@@ -450,11 +450,20 @@ input[type=date],input[type=time]{direction:ltr;text-align:start}
     render(); window.scrollTo(0, 0);
   }
 
+    function iconRow(){
+    return '<p class="bk">' +
+      ('<button class="ico-q" data-act="exportdata" title="تصدير بياناتي" aria-label="تصدير بياناتي">' + ICON_DL + '</button>') +
+      '<button class="ico-q" data-act="importdata" title="استيراد بياناتي" aria-label="استيراد بياناتي">' + ICON_UP + '</button>' +
+      ('<button class="ico-q" data-act="exportapp" title="تصدير التطبيق كاملًا مع بياناتك" aria-label="تصدير التطبيق كاملًا مع بياناتك">' + ICON_CODE + '</button>') +
+      '</p>';
+  }
+
   function homeView(){
     var list = sortedMeds();
     var h = '<header class="top"><h1>أدويتي</h1><p class="sub">' + esc(fmtLongDay(Date.now())) + '</p></header>';
     if (!list.length) {
       if (storageNote()) h += '<p class="note-local">' + esc(storageNote()) + '</p>'; h += '<div class="empty"><h2>لا توجد أدوية بعد</h2><p>أضف أول دواء لتبدأ بتوثيق الجرعات وأوقاتها.</p><button class="btn" data-act="add">إضافة دواء</button></div>';
+      h += iconRow();
       return h;
     }
     h += '<ul class="meds">' + list.map(function(m){
@@ -470,11 +479,7 @@ input[type=date],input[type=time]{direction:ltr;text-align:start}
       '</li>';
     }).join('') + '</ul>';
     if (storageNote()) h += '<p class="note-local">' + esc(storageNote()) + '</p>'; if (false) h += '<p class="note-local">البيانات محفوظة على هذا الجهاز فقط.</p>';
-    h += '<p class="bk">' +
-      (dl ? '<button class="ico-q" data-act="exportdata" title="تصدير بياناتي" aria-label="تصدير بياناتي">' + ICON_DL + '</button>' : '') +
-      '<button class="ico-q" data-act="importdata" title="استيراد بياناتي" aria-label="استيراد بياناتي">' + ICON_UP + '</button>' +
-      (dl ? '<button class="ico-q" data-act="exportapp" title="تصدير التطبيق كاملًا مع بياناتك" aria-label="تصدير التطبيق كاملًا مع بياناتك">' + ICON_CODE + '</button>' : '') +
-      '</p>';
+    h += iconRow();
     h += '<button class="fab" data-act="add">+ إضافة دواء</button>';
     return h;
   }
@@ -572,11 +577,10 @@ input[type=date],input[type=time]{direction:ltr;text-align:start}
   }
 
   function exportApp(){
-    if (!dl) return;
     if (!SELF_JS || !SELF_CSS) { toast('تعذّر تجهيز ملف التطبيق في هذا العرض'); return; }
     var seed = JSON.stringify({ meds: sortedMeds() }).replace(/</g, '\\u003c');
     var html = '<!DOCTYPE html>\n<html lang="ar" dir="rtl">\n<head>\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n<title>سجل الأدوية</title>\n<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">\n<style>' + SELF_CSS + '</style>\n</head>\n<body>\n<div id="app"><div class="loading">جارٍ التحميل…</div></div>\n<div id="layer"></div>\n<div id="toast-slot"></div>\n<script type="application/json" id="seed">' + seed + '<' + '/script>\n<script>' + SELF_JS + '<' + '/script>\n</body>\n</html>\n';
-    dl.save({ filename: 'index.html', data: html })
+    saveFile('index.html', html, 'text/html')
       .then(function(){ toast('تم حفظ ملف التطبيق'); })
       .catch(function(e){
         if (e && e.code === 'declined') return;
@@ -585,11 +589,35 @@ input[type=date],input[type=time]{direction:ltr;text-align:start}
       });
   }
 
+  function saveFile(name, text, mime){
+    if (dl) return dl.save({ filename: name, data: text });
+    return new Promise(function(res, rej){
+      function tryDownload(){
+        try {
+          var a = document.createElement('a');
+          a.href = URL.createObjectURL(new Blob([text], { type: mime }));
+          a.download = name; document.body.appendChild(a); a.click();
+          setTimeout(function(){ URL.revokeObjectURL(a.href); a.remove(); }, 1500);
+          res();
+        } catch(e){ rej(e); }
+      }
+      try {
+        var file = new File([text], name, { type: mime });
+        if (navigator.canShare && navigator.canShare({ files: [file] })) {
+          navigator.share({ files: [file] }).then(res).catch(function(e){
+            if (e && e.name === 'AbortError') rej({ code: 'declined' }); else tryDownload();
+          });
+          return;
+        }
+      } catch(e){}
+      tryDownload();
+    });
+  }
+
   function exportData(){
-    if (!dl) return;
     var now = new Date();
     var data = { app: 'medication-tracker', version: 1, exportedAt: now.toISOString(), meds: sortedMeds() };
-    dl.save({ filename: 'medication-data-' + dayKey(now.getTime()) + '.json', data: JSON.stringify(data, null, 2) })
+    saveFile('medication-data-' + dayKey(now.getTime()) + '.json', JSON.stringify(data, null, 2), 'application/json')
       .then(function(){ toast('تم حفظ ملف بياناتك'); })
       .catch(function(e){ if (e && e.code === 'declined') return; toast('تعذّر حفظ الملف'); });
   }
